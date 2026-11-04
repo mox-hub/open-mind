@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   OpenMind 壳设计 tokens（浅色 / 暗色 .dark）
+   品牌绿 #3d8b7d 沿用自 v0.3；暗色与 simple-mind-map 墨黑主题同调。
+   文档主题切到暗色时，App.vue 会给 <html> 加 .dark，壳同步变暗。
+   ============================================================ */
+:root {
+  --background: #f5f6f8;
+  --foreground: #2c3038;
+  --card: #ffffff;
+  --card-foreground: #2c3038;
+  --popover: #ffffff;
+  --popover-foreground: #2c3038;
+  --primary: #3d8b7d;
+  --primary-foreground: #ffffff;
+  --secondary: #eef1f4;
+  --secondary-foreground: #2c3038;
+  --muted: #eef1f4;
+  --muted-foreground: #8a909c;
+  --accent: #e6f2ef;
+  --accent-foreground: #2d5c53;
+  --destructive: #e93b30;
+  --destructive-foreground: #ffffff;
+  --border: #e2e4e9;
+  --input: #d8dbe2;
+  --ring: #3d8b7d;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #1e2024;
+  --foreground: #d5d9e0;
+  --card: #26292e;
+  --card-foreground: #d5d9e0;
+  --popover: #26292e;
+  --popover-foreground: #d5d9e0;
+  --primary: #4aa392;
+  --primary-foreground: #ffffff;
+  --secondary: #2e3238;
+  --secondary-foreground: #d5d9e0;
+  --muted: #2e3238;
+  --muted-foreground: #9aa1ad;
+  --accent: #2a3f3a;
+  --accent-foreground: #9fd8cb;
+  --destructive: #e2584d;
+  --destructive-foreground: #ffffff;
+  --border: #363a41;
+  --input: #3c4148;
+  --ring: #4aa392;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei',
+    'PingFang SC', sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  html, body, #app {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    font-size: 13px;
+    background: var(--background);
+    user-select: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--input);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted-foreground);
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+/* ============================================================
+   画布（simple-mind-map 渲染的 SVG）专用样式
+   ============================================================ */
+.editor svg { cursor: default; }
+.editor .node-text-wrap, .editor text { user-select: none; }

@@ -1,0 +1,9 @@
+node_modules
+dist
+src-tauri/target
+*.local
+.DS_Store
+
+# 开发期验证产物
+scripts/*.json
+scripts/*.png
